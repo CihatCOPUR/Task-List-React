@@ -18,8 +18,10 @@ const Home = () => {
   };
 
   const url="https://6363964037f2167d6f7d3e8c.mockapi.io/task";
-const getTask=()=>{
-    axios(url).then((res)=>setTask(res.data))
+const getTask=async ()=>{
+    const data=await axios(url)
+    setTask(data.data)
+    
 }
 
   useEffect(() => {
@@ -27,21 +29,21 @@ const getTask=()=>{
   }, [])
   
 
-  console.log(task)
 
   return (
     <Container className="home">
       <Button
+      className="w-50"
         onClick={() => {
           toggle();
         }}
       >
         {text}
       </Button>
-      <AddTask />
-      {open && <TaskList  task={task}/>}
-
       
+      {open && <AddTask  getTask={getTask}  />}
+
+      <TaskList  getTask={getTask} task={task}/>
     </Container>
   );
 };
