@@ -9,17 +9,25 @@ const Home = () => {
 
   const [text, setText] = useState("Show Task ");
 
+  const [task, setTask] = useState([]);
+
+
   const toggle = () => {
     setOpen(!open);
     setText(open ? "Show tasks" : "Hide tasks");
   };
 
   const url="https://6363964037f2167d6f7d3e8c.mockapi.io/task";
+const getTask=()=>{
+    axios(url).then((res)=>setTask(res.data))
+}
 
   useEffect(() => {
-   axios(url).then((res)=>console.log(res.data))
+   getTask()
   }, [])
   
+
+  console.log(task)
 
   return (
     <Container className="home">
@@ -30,9 +38,10 @@ const Home = () => {
       >
         {text}
       </Button>
-      {open && <AddTask />}
+      <AddTask />
+      {open && <TaskList  task={task}/>}
 
-      <TaskList />
+      
     </Container>
   );
 };
