@@ -19,8 +19,9 @@ const Home = () => {
 
   const url="https://6363964037f2167d6f7d3e8c.mockapi.io/task";
 const getTask=async ()=>{
-    const data=await axios(url)
-    setTask(data.data)
+    const {data}=await axios(url)
+    
+    setTask(data)
     
 }
 
