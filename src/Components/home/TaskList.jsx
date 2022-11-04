@@ -27,6 +27,7 @@ getTask();
                     <div>  
                     <h4>{task}</h4>
                     <p>{date}</p>
+                    
                     </div>
            
             
