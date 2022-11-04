@@ -23,7 +23,7 @@ getTask();
         {task.task.map((item)=>{
             const{id,task,date}=item
             return(
-                    <div key={id}  className=" map-div d-flex justify-content-between mt-2  p-2 bg-secondary" >  
+                    <div key={id}  className=" map-div d-flex justify-content-between mt-2  p-2 " >  
                     <div>  
                     <h4>{task}</h4>
                     <p>{date}</p>
@@ -31,7 +31,7 @@ getTask();
                     </div>
            
             
-<RiDeleteBack2Fill onClick={()=>{dlt(id)}} style={{cursor:"pointer" , marginRight:"20px" ,fontSize:"2rem" , boxShadow:"2px 2px 2px 2px"}}/>
+<RiDeleteBack2Fill onClick={()=>{dlt(id)}} style={{cursor:"pointer" , marginRight:"20px" ,fontSize:"2rem" }}/>
             </div>
             )
         })} 
